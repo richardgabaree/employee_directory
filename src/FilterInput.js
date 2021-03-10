@@ -9,7 +9,7 @@ const FilterInput = ({ users, updateUsers }) => {
                 ? users 
                 : users.filter(
                     ({ name: { first } }) => 
-                        first.toLowerCase().indexOf(inputValue.toLocaleLowerCase()) >= 0
+                        first.toLowerCase().indexOf(inputValue.toLowerCase()) >= 0
                 );
             updateUsers(filteredUsers);
                 }, [inputValue, users]);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from "react";
 
 const Table = ({ users }) => {
-    const [sortedUsers, updateSortedUser] = useState([]);
+    const [sortedUsers, updateSortedUsers] = useState([]);
 
     useEffect(() => updateSortedUsers(users), [users]);
 
@@ -70,7 +70,7 @@ const Table = ({ users }) => {
                     <td>{country}</td>
                     <td>{postcode}</td>
                     <td>
-                      <img src={thumbnail} />
+                      <img src={thumbnail} alt={""}/>
                     </td>
     
                     <td></td>
