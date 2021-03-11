@@ -1,76 +1,65 @@
-import React, { useState, useEffect }  from "react";
+import React, { useEffect, useState }  from "react";
 
 const Table = ({ users }) => {
-    const [sortedUsers, updateSortedUsers] = useState([]);
+  const [userCopy, setUserCopy] = useState([]);
+  const [sortedUsers, updateSortedUsers] = useState([]);
 
-    useEffect(() => updateSortedUsers(users), [users]);
+    useEffect(() => {
+      // console.log(users)
+      // setUserCopy(users)
+    }, [users])
 
+    const sortUsers = () => {
+      const updateSort = users.sort((a, b) => {
+        const nameA = a.name.first;
+        const nameB = b.name.first;
+
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        return 0;
+      }); 
+                   
+        updateSortedUsers(updateSort);
+        console.log(sortedUsers);
+    } 
+    
     return (
         <div>
           <table className="table">
             <thead>
               <tr>
-                <th scope="col">title</th>
+                {/* <th scope="col">title</th> */}
                 <th
                   scope="col"
-                  onClick={() => {
-                    const usersCopy = [...users];
-                    const updateSort = usersCopy.sort((a, b) => {
-                      const nameA = a.name.first;
-                      const nameB = b.name.first;
-    
-                      if (nameA < nameB) {
-                        return -1;
-                      }
-                      if (nameA > nameB) {
-                        return 1;
-                      }
-    
-                      return 0;
-                    });
-    
-                    updateSortedUsers(updateSort);
-                  }}
+                  onClick={sortUsers}
                 >
                   First
                 </th>
+
+                <th scope="col">picture</th>
                 <th scope="col">Last</th>
-                <th scope="col">gender</th>
                 <th scope="col">email</th>
                 <th scope="col">phone</th>
                 <th scope="col">cell</th>
-                <th scope="col">city</th>
-                <th scope="col">state</th>
-                <th scope="col">country</th>
-                <th scope="col">postcode</th>
-                <th scope="col">picture</th>
-              </tr>
+                </tr> 
             </thead>
+
             <tbody>
-              {sortedUsers.map(
-                ({
-                  location: { city, state, country, postcode },
-                  picture: { thumbnail },
-                  cell,
-                  phone,
-                  gender,
-                  email,
-                  name: { first, last, title }
-                }) => (
-                  <tr key={email}>
-                    <td>{title}</td>
-                    <th>{first}</th>
-                    <td>{last}</td>
-                    <td>{gender}</td>
-                    <td>{email}</td>
-                    <td>{phone}</td>
-                    <td>{cell}</td>
-                    <td>{city}</td>
-                    <td>{state}</td>
-                    <td>{country}</td>
-                    <td>{postcode}</td>
+              {sortedUsers.map (
+                (user) => (
+                  <tr key={user.email}>
+                    <td>{user.name.first}</td>
+                    <td>{user.name.last}</td>
+                    <td>{user.email}</td>
+                    <td>{user.phone}</td>
+                    <td>{user.cell}</td>
                     <td>
-                      <img src={thumbnail} alt={""}/>
+                      <img src={user.picture.thumbnail} alt={""}/>
                     </td>
     
                     <td></td>

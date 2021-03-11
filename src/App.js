@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
 import FilterInput from "./FilterInput";
-import Table from "./Table";
+// import Table from "./Table";
 import { getUsers } from "./API";
 import "./App.css";
 
 function App() {
-    const [initialUser, updateAvailableUsers] = useState({});
-    const [usersToRender, updateUsersToRender] = useState({});
+    const [initialUsers, updateAvailableUsers] = useState({});
+    // const [usersToRender, updateUsersToRender] = useState({});
 
     useEffect(() => {
-        getUsers().then(({ data: {results } }) => updateAvailableUsers(results));
-    }, []);
+        getUsers()
+            .then(({ data: {results } }) => {
+                updateAvailableUsers(results);
+                // updateUsersToRender(results)
+        });
+    }, [initialUsers]);
 
     return (
         <div className="App">
@@ -18,8 +22,7 @@ function App() {
             <p> 
                 To begin your search, enter a first name inthe user input below
             </p>
-            <FilterInput users={initialUser} updateUsers={updateUsersToRender} />
-            <Table users={usersToRender} />
+            <FilterInput users={initialUsers} updateUsers={updateAvailableUsers} />
         </div>
     );
 }
