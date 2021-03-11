@@ -1,25 +1,3 @@
-kishaprudente
-/
-employee-directory-react
-1
-0
-0
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-employee-directory-react/src/components/Table.js /
-@kishaprudente
-kishaprudente added sort function
-Latest commit f31708b on Jun 3, 2020
- History
- 1 contributor
-23 lines (22 sloc)  574 Bytes
-  
 import React from "react";
 import ListItem from "./ListItem";
 
