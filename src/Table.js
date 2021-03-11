@@ -1,77 +1,48 @@
-import React, { useEffect, useState }  from "react";
+kishaprudente
+/
+employee-directory-react
+1
+0
+0
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+employee-directory-react/src/components/Table.js /
+@kishaprudente
+kishaprudente added sort function
+Latest commit f31708b on Jun 3, 2020
+ History
+ 1 contributor
+23 lines (22 sloc)  574 Bytes
+  
+import React from "react";
+import ListItem from "./ListItem";
 
-const Table = ({ users }) => {
-  const [userCopy, setUserCopy] = useState([]);
-  const [sortedUsers, updateSortedUsers] = useState([]);
+export default ({ employees, handleSortButton, sort }) => {
+	return (
+		<table className="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Image</th>
+					<th scope="col">Name 
+						<span>
+							<i className={sort ? "fa fa-sort-alpha-asc" : "fa fa-sort-alpha-desc"} onClick={handleSortButton}></i>
+						</span>
+					</th>
+					<th scope="col">Phone</th>
+					<th scope="col">Email</th>
+					<th scope="col">DOB</th>
+				</tr>
+			</thead>
+			<ListItem employees={employees} />
+		</table>
+	);
+};
 
-    useEffect(() => {
-      // console.log(users)
-      // setUserCopy(users)
-    }, [users])
-
-    const sortUsers = () => {
-      const updateSort = users.sort((a, b) => {
-        const nameA = a.name.first;
-        const nameB = b.name.first;
-
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-
-        return 0;
-      }); 
-                   
-        updateSortedUsers(updateSort);
-        console.log(sortedUsers);
-    } 
-    
-    return (
-        <div>
-          <table className="table">
-            <thead>
-              <tr>
-                {/* <th scope="col">title</th> */}
-                <th
-                  scope="col"
-                  onClick={sortUsers}
-                >
-                  First
-                </th>
-
-                <th scope="col">picture</th>
-                <th scope="col">Last</th>
-                <th scope="col">email</th>
-                <th scope="col">phone</th>
-                <th scope="col">cell</th>
-                </tr> 
-            </thead>
-
-            <tbody>
-              {sortedUsers.map (
-                (user) => (
-                  <tr key={user.email}>
-                    <td>{user.name.first}</td>
-                    <td>{user.name.last}</td>
-                    <td>{user.email}</td>
-                    <td>{user.phone}</td>
-                    <td>{user.cell}</td>
-                    <td>
-                      <img src={user.picture.thumbnail} alt={""}/>
-                    </td>
-    
-                    <td></td>
-                  </tr>
-                )
-              )}
-            </tbody>
-          </table>
-        </div>
-      );
-    };
-    
-    export default Table;
 
 
