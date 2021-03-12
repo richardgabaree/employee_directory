@@ -4,9 +4,8 @@ import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm.js";
-import EmployeeDetail from "./EmployeeDetails";
+import EmployeeDetails from "./EmployeeDetails";
 import API from"../controller/API";
-// import { SplitChunksPlugin } from "webpack";
 
 class ApiContainer extends Component {
     state = {
@@ -66,7 +65,7 @@ class ApiContainer extends Component {
                     person.phone.includes(this.state.search)
                 )
                  .map(x => 
-                       <EmployeeDetail
+                       <EmployeeDetails
                        key={x.login.uuid}
                        name={x.name}
                        phone={x.phone}
