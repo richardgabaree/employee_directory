@@ -4,9 +4,9 @@ import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
 import SearchForm from "./SearchForm.js";
-import EmployeeDetail from "./EmployeeDetail";
+import EmployeeDetail from "./EmployeeDetails";
 import API from"../controller/API";
-import { SplitChunksPlugin } from "webpack";
+// import { SplitChunksPlugin } from "webpack";
 
 class ApiContainer extends Component {
     state = {
@@ -24,7 +24,7 @@ class ApiContainer extends Component {
     }
 
     searchEmployees = query => {
-        return this.state.result.filter.(person => person.name.first.includes(query) || person.name.last.includes(query) || person.phone.includes(query))
+        return this.state.result.filter(person => person.name.first.includes(query) || person.name.last.includes(query) || person.phone.includes(query))
     };
 
     handleInputChange = event => {

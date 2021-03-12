@@ -1,5 +1,5 @@
 import React from "react";
-import APIContainer from ".components/APIContainer";
+import APIContainer from "./components/APIContainer";
 
 
 function App() {
