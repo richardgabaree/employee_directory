@@ -3,7 +3,7 @@ import Container from "./Container";
 import Row from "./Row";
 import Col from "./Col";
 import Card from "./Card";
-import SearchForm from "./SearchForm";
+import SearchForm from "./SearchForm.js";
 import EmployeeDetail from "./EmployeeDetail";
 import API from"../controller/API";
 import { SplitChunksPlugin } from "webpack";
