@@ -7,7 +7,9 @@ function EmployeeDetails(props) {
       <li className="list-group-item"><img alt={props.name} className="img-fluid" src={props.picture} style={{ margin: "0 auto" }} /></li>
       <li className="list-group-item"> {props.name.first} {props.name.last}</li>
       <li className="list-group-item"> {props.phone}</li>
-      <li className="list-group-item"> {props.email}</li> 
+      <li className="list-group-item"> {props.email}</li>
+      <li className="list-group-item"> {props.dob.date}</li>
+
       </ul>
     </div>
   );
@@ -73,12 +75,12 @@ export default EmployeeDetails;
 //                                 <td>
 //                                     <image src {...picture.thumbnail} />
 //                                 </td>
-//                                     <td {/name.first}> </td >
-//                                     <td>{/name.last}</td >
-//                                     <td>{/phone}</td >
-//                                     <td>{/email}</td >
-//                                     <td>{/dob.date}</td >
-
+//                                     <td>{props.name.first}</td >
+//                                     <td>{props.name.last}</td >
+//                                     <td>{props.phone}</td >
+//                                     <td>{props.email}</td >
+//                                     <td>{props.dob.date}</td >
+                                    
 //                                     <td></td>
 //                             </tr>
 //                         )                   
